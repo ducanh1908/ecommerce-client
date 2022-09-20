@@ -28,11 +28,15 @@ const SearchContainer = styled.div`
   align-items: center;
   margin-left: 25px;
   padding: 5px;
+  width: 50%;
+
+  border-radius: 10px;
 `;
 const Input = styled.input`
   border: none;
   color: gray;
   outline: none;
+  width: 100%;
 `;
 const Center = styled.div`
   flex: 1;
@@ -46,6 +50,7 @@ const Right = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 `;
 
 const MenuItem = styled.div`
@@ -62,11 +67,11 @@ const Navbar = () => {
           <Language>EN</Language>
           <SearchContainer>
             <Input />
-            <SearchIcon style={{color:'gray', fontSize:'16'}} />
+            <SearchIcon style={{color:'gray', fontSize:'20', cursor:'pointer'}} />
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>YongLee</Logo>{" "}
+          <Logo>YongLee.</Logo>{" "}
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>

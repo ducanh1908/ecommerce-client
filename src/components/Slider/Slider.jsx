@@ -80,14 +80,13 @@ const Slider = () => {
 
     const [slideIndex, setSlideIndex] = useState(0)
     const handleClick = (direction) => {
+        console.log(direction)
         if(direction === 'left') {
             setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2)
-            console.log(sliderItems);
-
         }
-        else {
-            setSlideIndex(sliderItems < 2 ? slideIndex + 1 : 0)
-            console.log(sliderItems);
+        else{
+            setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
+            
         }
     }
   return (
