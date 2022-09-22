@@ -9,7 +9,7 @@ flex-wrap: wrap;
 justify-content: space-between;
 
 `
-const Product = () => {
+const Products = () => {
   return (
     <Container>
 {
@@ -23,4 +23,4 @@ const Product = () => {
   )
 }
 
-export default Product
+export default Products
