@@ -3,9 +3,11 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import Badge from '@mui/material/Badge';
 import React from "react";
 import styled from "styled-components";
+import {mobile} from './../../BreakPoints'
 
 const Container = styled.div`
   height: 60px;
+  ${mobile({backgroundColor:"red"})}
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;
