@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { mobile } from './../../BreakPoints';
 
 
 
@@ -19,6 +20,8 @@ padding: 20px;
 width: 40%;
 
 background-color: white;
+${mobile({width:'75%'})}
+
 `
 const Title = styled.h1`
 font-size:24px;

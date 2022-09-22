@@ -7,10 +7,12 @@
    import InstagramIcon from '@mui/icons-material/Instagram';
    import TwitterIcon from '@mui/icons-material/Twitter';
   import styled from "styled-components";
- 
+ import { mobile } from './../../BreakPoints';
+
   
   const Container = styled.div`
     display: flex;
+  ${mobile({flexDirection:'column'})}
     
   `;
   
@@ -46,6 +48,8 @@
   const Center = styled.div`
     flex: 1;
     padding: 20px;
+  ${mobile({display:'none'})}
+
     
   `;
   
@@ -69,6 +73,7 @@
   const Right = styled.div`
     flex: 1;
     padding: 20px;
+  ${mobile({backgroundColor:'#eee'})}
    
   
   `;
