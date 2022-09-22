@@ -87,7 +87,7 @@
     return (
       <Container>
         <Left>
-          <Logo>LAMA.</Logo>
+          <Logo>YoongLee.</Logo>
           <Desc>
             There are many variations of passages of Lorem Ipsum available, but
             the majority have suffered alteration in some form, by injected
@@ -126,13 +126,13 @@
         <Right>
           <Title>Contact</Title>
           <ContactItem>
-            <RoomIcon style={{marginRight:"10px"}}/> 622 Dixie Path , South Tobinchester 98336
+            <RoomIcon style={{marginRight:"10px"}}/> 26 Bui Xuong Trach, Thanh Xuan, Ha Noi, Viet Nam
           </ContactItem>
           <ContactItem>
-            <PhoneIcon style={{marginRight:"10px"}}/> +1 234 56 78
+            <PhoneIcon style={{marginRight:"10px"}}/> +84 966 987 909
           </ContactItem>
           <ContactItem>
-            <MailOutlineIcon style={{marginRight:"10px"}} /> contact@lama.dev
+            <MailOutlineIcon style={{marginRight:"10px"}} /> ducanh.le1908@gmail.com
           </ContactItem>
           <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
         </Right>
