@@ -17,6 +17,8 @@ ${mobile({padding:'10px'})}
 const Title = styled.h1`
   font-weight: 300;
   text-align: center;
+${mobile({fontSize:'25px'})}
+  
 `;
 
 const Top = styled.div`
@@ -34,6 +36,8 @@ const TopButton = styled.button`
   background-color: ${(props) =>
     props.type === "filled" ? "black" : "transparent"};
   color: ${(props) => props.type === "filled" && "white"};
+${mobile({fontSize:'10px'})}
+
 `;
 
 const TopTexts = styled.div`
