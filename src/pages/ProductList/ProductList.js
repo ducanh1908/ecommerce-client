@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Footer from '../../components/Footer/Footer';
-
-import { red } from '@mui/material/colors';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { mobile } from './../../BreakPoints';

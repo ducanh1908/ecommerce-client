@@ -3,8 +3,8 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import Badge from '@mui/material/Badge';
 import React from "react";
 import styled from "styled-components";
-import {mobile} from './../../BreakPoints'
-
+import { mobile } from './../../BreakPoints';
+import {useSelector} from 'react-redux'
 const Container = styled.div`
   height: 60px;
   ${mobile({height:'50px'})}
@@ -68,9 +68,12 @@ const MenuItem = styled.div`
   margin-left: 25px;
   text-transform: uppercase;
   ${mobile({fontSize:'12px', marginLeft: '10px'})}
-
 `;
+
 const Navbar = () => {
+  
+  const quantity = useSelector(state=> state.cart)
+  console.log(quantity);
   return (
     <Container>
       <Wrapper>
@@ -82,7 +85,9 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>YongLee.</Logo>{" "}
+          
+          <Logo>YongLee.</Logo>
+         
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>
