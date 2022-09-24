@@ -6,6 +6,7 @@ import Announcement from "./../../components/Announcement/Announcement";
 import Footer from "./../../components/Footer/Footer";
 import { Add, Remove } from "@mui/icons-material";
 import { mobile } from './../../BreakPoints';
+import { useSelector } from 'react-redux';
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -51,6 +52,7 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 50px;
 ${mobile({flexDirection:'column'})}
 
 `;
@@ -158,6 +160,8 @@ text-transform: uppercase;
 `
 
 const Cart = () => {
+  const cart = useSelector(state => state.cart)
+  console.log(cart);
   return (
     <Container>
       <Navbar />
@@ -167,97 +171,52 @@ const Cart = () => {
         <Top>
           <TopButton>Continue Shopping</TopButton>
           <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
+            <TopText>Shopping Bag({cart.products.quantity})</TopText>
             <TopText>Your Wishlist</TopText>
           </TopTexts>
           <TopButton type="filled">checkout Now</TopButton>
         </Top>
         <Bottom>
           <Info>
-            <Product>
-              <ProductDetail>
-                <Image src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png" />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> HAKURA T-SHIRT
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> 93813718293
-                  </ProductId>
-                  <ProductColor color="gray" />
-                  <ProductSize>
-                    <b>Size:</b> M
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                    <Add />
-                    <ProductAmount>2</ProductAmount>
-                    <Remove />
-                </ProductAmountContainer>
-                    <ProductPrice> $ 60 </ProductPrice>
-              </PriceDetail>
-            </Product>
+           { cart.products.map(item => (
+
+             <Product key={item._id}>
+                <ProductDetail>
+                  <Image src={item.img} />
+                  <Details>
+                    <ProductName>
+                      <b>Product:</b> {item.title}
+                    </ProductName>
+                    <ProductId>
+                      <b>ID:</b> {item._id}
+                    </ProductId>
+                    <ProductColor color={item.color} />
+                    <ProductSize>
+                      <b>Size:</b>{item.size}
+                    </ProductSize>
+                  </Details>
+                </ProductDetail>
+                <PriceDetail>
+                  <ProductAmountContainer>
+                      <Add />
+                      <ProductAmount>{item.quantity}</ProductAmount>
+                      <Remove />
+                  </ProductAmountContainer>
+                      <ProductPrice> $ {item.price * item.quantity} </ProductPrice>
+                </PriceDetail>
+              </Product>
+             )) 
+           }
+            
             <Hr />
-            <Product>
-              <ProductDetail>
-                <Image src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png" />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> HAKURA T-SHIRT
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> 93813718293
-                  </ProductId>
-                  <ProductColor color="gray" />
-                  <ProductSize>
-                    <b>Size:</b> M
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                    <Add />
-                    <ProductAmount>2</ProductAmount>
-                    <Remove />
-                </ProductAmountContainer>
-                    <ProductPrice> $ 60 </ProductPrice>
-              </PriceDetail>
-            </Product>
-            <Hr />
-            <Product>
-              <ProductDetail>
-                <Image src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png" />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> HAKURA T-SHIRT
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> 93813718293
-                  </ProductId>
-                  <ProductColor color="gray" />
-                  <ProductSize>
-                    <b>Size:</b> M
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                    <Add />
-                    <ProductAmount>2</ProductAmount>
-                    <Remove />
-                </ProductAmountContainer>
-                    <ProductPrice> $ 60 </ProductPrice>
-              </PriceDetail>
-            </Product>
+            
           </Info>
 
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
                 <SummaryItemText>Subtotal</SummaryItemText>
-                <SummaryItemPrice>$ 60 </SummaryItemPrice>
+                <SummaryItemPrice>$ {cart.total} </SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
                 <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -269,7 +228,7 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem type='total'>
                 <SummaryItemText >Total</SummaryItemText>
-                <SummaryItemPrice>$ 60 </SummaryItemPrice>
+                <SummaryItemPrice>$ {cart.total} </SummaryItemPrice>
             </SummaryItem>
             <SummaryButton>Checkout now</SummaryButton>
           </Summary>

@@ -5,6 +5,7 @@ import React from "react";
 import styled from "styled-components";
 import { mobile } from './../../BreakPoints';
 import {useSelector} from 'react-redux'
+import { Link } from 'react-router-dom';
 const Container = styled.div`
   height: 60px;
   ${mobile({height:'50px'})}
@@ -71,8 +72,7 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
-  
-  const quantity = useSelector(state=> state.cart)
+  const quantity = useSelector(state=> state.cart.quantity)
   console.log(quantity);
   return (
     <Container>
@@ -92,11 +92,13 @@ const Navbar = () => {
         <Right>
           <MenuItem>REGISTER</MenuItem>
           <MenuItem>SIGN IN</MenuItem>
+          <Link to={"/cart"}>
           <MenuItem>
-          <Badge badgeContent={4} color="secondary">
+          <Badge badgeContent={quantity} color="secondary">
                 <ShoppingCartOutlinedIcon />        
             </Badge>
           </MenuItem>
+          </Link>
         </Right>
       </Wrapper>
     </Container>
