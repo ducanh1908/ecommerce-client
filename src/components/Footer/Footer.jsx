@@ -8,7 +8,7 @@
    import TwitterIcon from '@mui/icons-material/Twitter';
   import styled from "styled-components";
  import { mobile } from './../../BreakPoints';
-
+import StripeCheckout from 'react-stripe-checkout'
   
   const Container = styled.div`
     display: flex;
